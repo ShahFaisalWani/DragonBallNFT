@@ -1,0 +1,49 @@
+@import 'remixicon/fonts/remixicon.css';
+@import "primereact/resources/themes/lara-light-cyan/theme.css";
+
+@font-face {
+  font-family: 'Saiyan';
+  src: url('/fonts/Saiyan-Sans.ttf') format('truetype');
+}
+
+:root {
+  font-family: 'Saiyan';
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-image: url('/images//background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.navbar button {
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-family: sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+}

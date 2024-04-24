@@ -1,0 +1,152 @@
+.bold {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 2rem;
+  gap: 1rem;  
+}
+.navbar div {
+    width: 33%;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+}
+.address {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: white;
+}
+
+.address i {
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.box{
+  text-align: center;
+  margin-top: 10em;
+}
+.button-73 {
+  appearance: none;
+  background-color: #FFFFFF;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #ADCFFF 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-73:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.button-73:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .button-73 {
+    font-size: 1.5rem;
+    padding: .75rem 2rem;
+  }
+}
+
+
+.App .container {
+  border: 1px solid #DEDEDE;
+  padding: 12px;
+  box-shadow: 0 0 4px 4px #DEDEDE; 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  justify-items: center;
+  align-items: stretch;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 600px;
+  height: 600px;
+  perspective: 100%;
+  max-width: 720px;
+}
+
+.collection{
+  display: flex;
+  justify-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding-inline: 4em;
+  flex-wrap: wrap;  
+  margin-bottom: 4em;
+}
+
+.box h1{
+  color: #fff;
+}
+
+.collection .card{
+  width: 150px;
+  height: 200px;
+  transition: 0.3s;
+  object-fit: fit;
+}
+.collection .card img {
+  border-radius: 1em;
+  width: 100%;
+  height: 100%; 
+  cursor: pointer;
+}
+.collection .card:hover{
+  scale: 1.1;
+}
+.collection .card h2{
+  line-height: 0;
+}
+
+.main-container{
+  position: relative;
+}
+
+.minting{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-45%);
+}
+.minting iframe{
+  pointer-events: none;
+}
+.minting h2 {
+  text-align: center;
+  font-size: 28px;
+  line-height: 0;
+}
