@@ -8,7 +8,7 @@ import CARD_ARRAY from "./assets/CardArray.json";
 import Web3 from "web3";
 import dragonBallABI from "./contracts/abi/DragonBallToken.json";
 
-const contractAddress = "0xC12422F59b8d441E1A27C6a2B2C2Dcf9e559464F"; //replace with your contract address
+const contractAddress = "0x19cf0060e49d3908DFdB2De280E2B563e52dfaa8"; //replace with your contract address
 
 export const web3 = new Web3(window.ethereum);
 

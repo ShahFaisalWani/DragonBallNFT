@@ -24,6 +24,7 @@ const TokenCard = ({ token, onSuccess, ownerAccount }) => {
     <>
       <div className="card">
         <img
+          crossOrigin="anonymous"
           src={token.img && "https://gateway.pinata.cloud/ipfs/" + token.img}
           alt={token}
           onClick={() => setVisible(true)}
