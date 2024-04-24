@@ -4,6 +4,7 @@ import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import "./TokenCard.css";
 import { dragonBallContract } from "./App";
+import CARD_ARRAY from "./assets/CardArray.json";
 
 const TokenCard = ({ token, onSuccess, ownerAccount }) => {
   const [visible, setVisible] = useState(false);
@@ -25,7 +26,7 @@ const TokenCard = ({ token, onSuccess, ownerAccount }) => {
       <div className="card">
         <img
           crossOrigin="anonymous"
-          src={token.img && "https://gateway.pinata.cloud/ipfs/" + token.img}
+          src={CARD_ARRAY.filter((card) => card.uid === token.img)[0].img}
           alt={token}
           onClick={() => setVisible(true)}
         />

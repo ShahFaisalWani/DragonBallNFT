@@ -113,18 +113,23 @@ function App() {
     const fetchPromises = tokens.map(async (token) => {
       let tokenURI = await dragonBallContract.methods.tokenURI(token).call();
       if (tokenURI) {
-        const res = await fetch(
-          "https://gateway.pinata.cloud/ipfs/" + tokenURI.split("//")[1]
-        );
-        const data = await res.json();
-        const imgUri = data.image.split("//")[1];
-        const index = arr.findIndex((item) => item.img === imgUri);
+        await fetch(
+          import.meta.env.VITE_API_URL + "/get_ipfs/" + tokenURI.split("//")[1],
+          {
+            method: "get",
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            const imgUri = data.image.split("//")[1];
+            const index = arr.findIndex((item) => item.img === imgUri);
 
-        if (index !== -1) {
-          arr[index].count++;
-        } else {
-          arr.push({ img: imgUri, count: 1, tokenId: parseInt(token) });
-        }
+            if (index !== -1) {
+              arr[index].count++;
+            } else {
+              arr.push({ img: imgUri, count: 1, tokenId: parseInt(token) });
+            }
+          });
       }
     });
 
@@ -138,25 +143,28 @@ function App() {
     let supply = await dragonBallContract.methods.totalSupply().call();
     const totalSupply = Number(supply) + 1;
 
-    await fetch("https://gateway.pinata.cloud/ipfs/" + token.split("//")[1], {
-      method: "get",
-    }).then(async (res) => {
-      const data = await res.json();
-      const imgUri = data.image.split("//")[1];
-
-      const index = ownerNFTs.findIndex((item) => item.img === imgUri);
-
-      if (index !== -1) {
-        const newArr = ownerNFTs;
-        newArr[index].count++;
-        setOwnerNFTs(newArr);
-      } else {
-        setOwnerNFTs([
-          ...ownerNFTs,
-          { img: imgUri, count: 1, tokenId: totalSupply },
-        ]);
+    await fetch(
+      import.meta.env.VITE_API_URL + "/get_ipfs/" + token.split("//")[1],
+      {
+        method: "get",
       }
-    });
+    )
+      .then((res) => res.json())
+      .then(async (data) => {
+        const imgUri = data.image.split("//")[1];
+        const index = ownerNFTs.findIndex((item) => item.img === imgUri);
+
+        if (index !== -1) {
+          const newArr = ownerNFTs;
+          newArr[index].count++;
+          setOwnerNFTs(newArr);
+        } else {
+          setOwnerNFTs([
+            ...ownerNFTs,
+            { img: imgUri, count: 1, tokenId: totalSupply },
+          ]);
+        }
+      });
   }
 
   const handleMatch = (card) => {
