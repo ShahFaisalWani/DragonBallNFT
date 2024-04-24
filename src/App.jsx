@@ -79,10 +79,6 @@ function App() {
     };
   }, [openCards]);
 
-  useEffect(() => {
-    checkCompletion();
-  }, [clearedCards]);
-
   const checkIsFlipped = (index) => {
     return openCards.includes(index);
   };
